@@ -8,10 +8,10 @@ feature "Getting information about users" do
     subscriber2 = create_user(name: "subscriber2", email: "subscriber2@example.com")
     subscriber3 = create_user(name: "asubscriber", email: "asubscriber@example.com")
     non_subscriber = create_user(name: "non-subscriber", email: "non-subscriber@example.com")
-    SubscriptionEvent.create!(user_id: subscriber1.id, event_type: "subscribed", price_per_month_in_cents: 100, date: 1.day.ago)
-    SubscriptionEvent.create!(user_id: subscriber2.id, event_type: "changed", price_per_month_in_cents: 100, date: 1.day.ago)
-    SubscriptionEvent.create!(user_id: subscriber3.id, event_type: "subscribed", price_per_month_in_cents: 100, date: 1.day.ago)
-    SubscriptionEvent.create!(user_id: non_subscriber.id, event_type: "unsubscribed", date: 1.day.ago)
+    create_subscription_event(subscriber1)
+    create_subscription_event(subscriber2, event_type: "changed")
+    create_subscription_event(subscriber3)
+    create_subscription_event(non_subscriber, event_type: "unsubscribed")
 
     visit root_path
     fill_in "Email", with: admin.email
