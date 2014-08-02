@@ -13,6 +13,11 @@
       <%= link_to "Subscription App", root_path %>
     </div>
     <% if current_user %>
+      <% if user_is_admin? %>
+        <div class="navigation">
+          <%= link_to "Current Members", reports_current_members_path %>
+        </div>
+      <% end %>
       <div class="logout">
         <%= current_user.email %> |
         <%= link_to "Logout", signout_path %>

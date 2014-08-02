@@ -2,6 +2,14 @@ User.destroy_all
 SubscriptionEvent.destroy_all
 
 User.create!(
+  name: 'Admin User',
+  email: 'admin@example.com',
+  password: 'password',
+  password_confirmation: 'password',
+  is_admin: true
+)
+
+User.create!(
   name: 'Some User',
   email: 'user@example.com',
   password: 'password',

@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   get "signin" => "sessions#new", as: :signin
   post "signin" => "sessions#create"
   get "signout" => "sessions#destroy", as: :signout
+  get "reports" => "reports#index"
+  get "reports/current-members" => "reports#current_members"
 end

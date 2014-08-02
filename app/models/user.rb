@@ -3,4 +3,10 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: {case_sensitive: false}
   validates :name, presence: true, uniqueness: {case_sensitive: false}
+
+  has_many :subscription_events
+
+  def active?
+    self.subscription_events.present?
+  end
 end

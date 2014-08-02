@@ -1,0 +1,9 @@
+<h2>Current Members</h2>
+<table class="current-members">
+  <th>Name</th>
+  <% @current_members.each do |member| %>
+    <tr class="subscriber">
+      <td class="name"><%= member.name %></td>
+    </tr>
+  <% end %>
+</table>
