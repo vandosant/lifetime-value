@@ -6,4 +6,8 @@ class ReportsController < ApplicationController
         user.subscription_events.last.event_type == "changed"
     end
   end
+
+  def lifetime_value
+    @members = User.all
+  end
 end
