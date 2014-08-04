@@ -5,7 +5,7 @@
   <% @members.each do |member| %>
     <tr class="subscriber">
       <td class="name"><%= member.name %></td>
-      <td class="value"><%= member.value %></td>
+      <td class="value">$<%= member.value.to_money %></td>
     </tr>
   <% end %>
 </table>

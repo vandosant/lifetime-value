@@ -8,6 +8,6 @@ class ReportsController < ApplicationController
   end
 
   def lifetime_value
-    @members = User.all
+    @members = User.all.sort_by { |user| user.value }.reverse
   end
 end

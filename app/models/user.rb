@@ -50,6 +50,6 @@ class User < ActiveRecord::Base
       end
     end
 
-    "$#{(result.to_f / 100).to_money}"
+    (result.to_f / 100)
   end
 end
